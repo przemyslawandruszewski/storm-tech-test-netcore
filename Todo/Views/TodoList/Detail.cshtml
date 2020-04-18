@@ -1,5 +1,6 @@
 ﻿@using Todo.Data.Entities
 @using Todo.Extensions
+@using Todo.Resources
 @using Todo.Services
 @model Todo.Models.TodoLists.TodoListDetailViewmodel
 
@@ -24,10 +25,10 @@
     <table id="todo-list" class="table table-striped table-bordered" style="">
         <thead>
         <tr>
-            <th>Title</th>
-            <th>Responsible</th>
-            <th>Importance</th>
-            <th>Rank</th>
+            <th>@TodoItemLabels.ToDoItemTitle</th>
+            <th>@TodoItemLabels.ToDoItemResponsible</th>
+            <th>@TodoItemLabels.ToDoItemImportance</th>
+            <th>@TodoItemLabels.ToDoItemRank</th>
         </tr>
         </thead>
         <tbody>
@@ -62,10 +63,8 @@
                 </td>
                 <td class="text-right">
                     <small>
-                        @item.ResponsibleParty.UserName
-
+                        <span email-hash="@Gravatar.GetHash(item.ResponsibleParty.Email)" email="@item.ResponsibleParty.UserName"></span>
                         <img src="https://www.gravatar.com/avatar/@Gravatar.GetHash(item.ResponsibleParty.Email)?s=30"/>
-
                     </small>
                 </td>
                 <td>@item.Importance.ToInt()</td>

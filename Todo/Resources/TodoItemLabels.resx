@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ToDoItemImportance" xml:space="preserve">
+    <value>Importance</value>
+    <comment>User to display label for Importance field label while looking at the list of to do items</comment>
+  </data>
   <data name="ToDoItemRank" xml:space="preserve">
     <value>Rank</value>
     <comment>User to display label for Rank field while editing or creating to do item.</comment>
@@ -128,5 +132,9 @@
   <data name="ToDoItemSkipDone" xml:space="preserve">
     <value>Hide done</value>
     <comment>Used to display label for skipping done filter on todo details list.</comment>
+  </data>
+  <data name="ToDoItemTitle" xml:space="preserve">
+    <value>Title</value>
+    <comment>User to display label for Title field label while looking at the list of to do items</comment>
   </data>
 </root>

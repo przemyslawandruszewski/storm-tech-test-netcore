@@ -20,4 +20,30 @@ $(document).ready(function () {
         ],
         "order": [[2, "asc"]]
     });
+
+    $("[email-hash]").each(function () {
+        const self = $(this);
+
+        const hash = self.attr('email-hash');
+        const email = self.attr('email');
+        const url = "https://pl.gravatar.com/" + hash + ".json";
+        $.get(url, function () {
+        })
+            .done(function (x) {
+                const profileData = x.entry[0];
+                let stringToDisplay = "";
+
+                if (profileData != null) {
+                    stringToDisplay = profileData.displayName;
+                }
+                stringToDisplay += " - " + email;
+                self.text(stringToDisplay);
+            })
+            .fail(function () {
+                self.text(email);
+            })
+            .always(function () {
+            });
+
+    });
 });

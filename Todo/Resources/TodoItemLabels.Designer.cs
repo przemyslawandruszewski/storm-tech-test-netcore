@@ -61,6 +61,15 @@ namespace Todo.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Importance.
+        /// </summary>
+        public static string ToDoItemImportance {
+            get {
+                return ResourceManager.GetString("ToDoItemImportance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rank.
         /// </summary>
         public static string ToDoItemRank {
@@ -84,6 +93,15 @@ namespace Todo.Resources {
         public static string ToDoItemSkipDone {
             get {
                 return ResourceManager.GetString("ToDoItemSkipDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string ToDoItemTitle {
+            get {
+                return ResourceManager.GetString("ToDoItemTitle", resourceCulture);
             }
         }
     }
