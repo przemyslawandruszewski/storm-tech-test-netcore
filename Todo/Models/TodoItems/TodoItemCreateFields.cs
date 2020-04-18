@@ -15,6 +15,9 @@ namespace Todo.Models.TodoItems
         
         public Importance Importance { get; set; } = Importance.Medium;
 
+        [Display(ResourceType = typeof(TodoItemLabels), Name = nameof(TodoItemLabels.ToDoItemRank))]
+        public int Rank { get; set; } = default;
+
         public TodoItemCreateFields() { }
 
         public TodoItemCreateFields(int todoListId, string todoListTitle, string responsiblePartyId)

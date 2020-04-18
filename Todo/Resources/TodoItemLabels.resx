@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ToDoItemRank" xml:space="preserve">
+    <value>Rank</value>
+    <comment>User to display label for Rank field while editing or creating to do item.</comment>
+  </data>
   <data name="ToDoItemResponsible" xml:space="preserve">
     <value>Responsible</value>
     <comment>Used to display label for field ResponsiblePartyId for views: Create and Edit ToDoItem</comment>

@@ -61,6 +61,15 @@ namespace Todo.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rank.
+        /// </summary>
+        public static string ToDoItemRank {
+            get {
+                return ResourceManager.GetString("ToDoItemRank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Responsible.
         /// </summary>
         public static string ToDoItemResponsible {
