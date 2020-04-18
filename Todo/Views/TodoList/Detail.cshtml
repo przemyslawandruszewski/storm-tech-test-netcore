@@ -14,9 +14,16 @@
     <ul class="list-group">
 
         <li class="list-group-item">
-            <a asp-action="Create" asp-controller="TodoItem" asp-route-todoListId="@Model.TodoListId">
-                <strong>Add New Item</strong>
-            </a>
+            <div class="row">
+                <div class="col-xs-6">
+                    <a asp-action="Create" asp-controller="TodoItem" asp-route-todoListId="@Model.TodoListId">
+                        <strong>Add New Item</strong>
+                    </a>
+                </div>
+                <div class="col-xs-6">
+                    @await Html.PartialAsync("DetailsFilterPartial", Model.Filter)
+                </div>
+            </div>
         </li>
 
         @foreach (var item in Model.Items.OrderBy(x => x.Importance.ToInt()))
@@ -36,7 +43,7 @@
             }
 
             <li class="list-group-item @contextualClass">
-                
+
                 <div class="row">
 
                     <div class="col-md-8">

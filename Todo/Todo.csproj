@@ -16,11 +16,15 @@
     <Content Update="Views\TodoList\Detail.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\TodoList\DetailsFilterPartial.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Resources\TodoItemLabels.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>TodoItemLabels.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

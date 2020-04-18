@@ -121,4 +121,8 @@
     <value>Responsible</value>
     <comment>Used to display label for field ResponsiblePartyId for views: Create and Edit ToDoItem</comment>
   </data>
+  <data name="ToDoItemSkipDone" xml:space="preserve">
+    <value>Hide done</value>
+    <comment>Used to display label for skipping done filter on todo details list.</comment>
+  </data>
 </root>

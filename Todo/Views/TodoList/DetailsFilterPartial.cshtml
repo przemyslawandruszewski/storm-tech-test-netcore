@@ -1,0 +1,7 @@
+﻿@model Todo.Models.TodoLists.ToDoListDetailFilterViewModel
+
+<form asp-action="Detail" method="GET">
+    @Html.HiddenFor(x => x.ToDoListId)
+    <input class="auto-submit" asp-for="SkipDone"/>
+    <label asp-for="SkipDone"></label>
+</form>

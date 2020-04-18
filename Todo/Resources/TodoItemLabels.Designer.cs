@@ -68,5 +68,14 @@ namespace Todo.Resources {
                 return ResourceManager.GetString("ToDoItemResponsible", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide done.
+        /// </summary>
+        public static string ToDoItemSkipDone {
+            get {
+                return ResourceManager.GetString("ToDoItemSkipDone", resourceCulture);
+            }
+        }
     }
 }
