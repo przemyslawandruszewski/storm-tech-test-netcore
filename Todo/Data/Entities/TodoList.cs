@@ -9,6 +9,8 @@ namespace Todo.Data.Entities
         public string Title { get; set; }
         public IdentityUser Owner { get; set; }
 
+        public string OwnerId { get; set; }
+        
         public ICollection<TodoItem> Items { get; set; } = new List<TodoItem>();
 
         protected TodoList() { }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Todo.Data;
 using Todo.Data.Entities;
@@ -7,11 +8,12 @@ namespace Todo.Services
 {
     public static class ApplicationDbContextConvenience
     {
-        public static IQueryable<TodoList> RelevantTodoLists(this ApplicationDbContext dbContext, string userId)
+        public static IList<TodoList> RelevantTodoLists(this ApplicationDbContext dbContext, string userId)
         {
-            return dbContext.TodoLists.Include(tl => tl.Owner)
+            return dbContext.TodoLists
                 .Include(tl => tl.Items)
-                .Where(tl => tl.Owner.Id == userId);
+                .Where(tl => tl.OwnerId == userId || tl.Items.Any(it => it.ResponsiblePartyId == userId))
+                .ToList();
         }
 
         public static TodoList SingleTodoList(this ApplicationDbContext dbContext, int todoListId, bool skipDone)
