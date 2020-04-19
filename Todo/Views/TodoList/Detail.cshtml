@@ -14,10 +14,9 @@
 <div class="col-md-6">
     <div class="row">
         <div class="col-xs-6">
-            <a asp-action="Create" asp-controller="TodoItem" asp-route-todoListId="@Model.TodoListId">
+            <a href="#" data-toggle="modal" data-target="#todo-item-creation-modal">
                 <strong>Add New Item</strong>
             </a>
-            <button data-toggle="modal" data-target="#todo-item-creation-modal">OPEN</button>
         </div>
         <div class="col-xs-6">
             @await Html.PartialAsync("DetailsFilterPartial", Model.Filter)
