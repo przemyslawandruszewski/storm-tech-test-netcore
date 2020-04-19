@@ -2,13 +2,26 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+let todoListDataTable;
 $(document).ready(function () {
     $('.auto-submit').on('click', function (e) {
         const form = e.target.closest('form');
         form.submit();
     });
 
-    $('#todo-list').DataTable({
+    $.fn.dataTable.ext.type.order['Importance'] = function (d) {
+        switch (d) {
+            case 'Low':
+                return 1;
+            case 'Medium':
+                return 2;
+            case 'High':
+                return 3;
+        }
+        return 0;
+    };
+
+    todoListDataTable = $('#todo-list').DataTable({
         "paging": false,
         "info": false,
         "searching": false,
@@ -47,3 +60,21 @@ $(document).ready(function () {
 
     });
 });
+
+function patchRank(element, todoItemId, rankIncrement) {
+    const rankValueContainer = $($(element).parent()).children('span');
+    const url = "/api/to-do-item/patch-rank/" + todoItemId;
+    const newRankValue = parseInt(rankValueContainer.text()) + rankIncrement;
+    $.ajax({
+        type: 'PATCH',
+        url: url,
+        data: JSON.stringify({rank: newRankValue}),
+        processData: false,
+        contentType: 'application/json-patch+json'
+    }).done(function (x) {
+        rankValueContainer.text(newRankValue);
+        const rowId = "item-" + todoItemId;
+        todoListDataTable.row('[id="' + rowId + '"]').invalidate().draw();
+    });
+
+}

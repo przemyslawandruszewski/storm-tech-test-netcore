@@ -32,7 +32,7 @@
         </tr>
         </thead>
         <tbody>
-        @foreach (var item in Model.Items.OrderBy(x => x.Importance.ToInt()))
+        @foreach (var item in Model.Items)
         {
             string contextualClass;
             switch (item.Importance)
@@ -47,7 +47,7 @@
                     contextualClass = "";
                     break;
             }
-            <tr class="@contextualClass">
+            <tr id="item-@item.TodoItemId" class="@contextualClass">
                 <td>
                     <a asp-action="Edit" asp-controller="TodoItem" asp-route-todoItemId="@item.TodoItemId">
 
@@ -67,8 +67,16 @@
                         <img src="https://www.gravatar.com/avatar/@Gravatar.GetHash(item.ResponsibleParty.Email)?s=30"/>
                     </small>
                 </td>
-                <td>@item.Importance.ToInt()</td>
-                <td>@item.Rank</td>
+                <td>@item.Importance</td>
+                <td>
+                    <span>@item.Rank</span>
+                    <button class="rank-button" onclick="patchRank(this, @item.TodoItemId, 1)">
+                        <i class="glyphicon glyphicon-arrow-up"></i>
+                    </button>
+                    <button class="rank-button" onclick="patchRank(this, @item.TodoItemId, -1)">
+                        <i class="glyphicon glyphicon-arrow-down"></i>
+                    </button>
+                </td>
             </tr>
         }
         </tbody>
