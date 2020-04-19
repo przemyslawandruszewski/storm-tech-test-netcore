@@ -78,3 +78,30 @@ function patchRank(element, todoItemId, rankIncrement) {
     });
 
 }
+
+function createTodoItem(todoListId) {
+    const title = $("#Title").val();
+    const importance = $("#Importance").val();
+    const rank = $("#Rank").val();
+    const responsibleId = $("#ResponsiblePartyId").val();
+
+    $.ajax({
+        type: 'POST',
+        url: '/api/to-do-item/create',
+        data: JSON.stringify({
+            TodoListId: todoListId,
+            Title: title,
+            ResponsiblePartyId: responsibleId,
+            Importance: importance,
+            Rank: rank
+        }),
+        processData: false,
+        contentType: 'application/json'
+    }).done(function (x) {
+        $("#Title").val('');
+        $("#Importance").val('Medium');
+        $("#Rank").val(0);
+        $('#modal-close').click();
+    });
+
+}

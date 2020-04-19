@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel;
 using Microsoft.AspNetCore.Identity;
 
-namespace Todo.Data.Entities {
+namespace Todo.Data.Entities
+{
     public class TodoItem
     {
         public int TodoItemId { get; set; }
@@ -11,13 +12,14 @@ namespace Todo.Data.Entities {
         public bool IsDone { get; set; }
         public Importance Importance { get; set; }
 
-        [DefaultValue(default(int))]
-        public int Rank { get; set; }
-        
+        [DefaultValue(default(int))] public int Rank { get; set; }
+
         public int TodoListId { get; set; }
         public TodoList TodoList { get; set; }
 
-        protected TodoItem() { }
+        protected TodoItem()
+        {
+        }
 
         public TodoItem(int todoListId, string responsiblePartyId, string title, Importance importance)
         {
@@ -26,9 +28,9 @@ namespace Todo.Data.Entities {
             Title = title;
             Importance = importance;
         }
-        
+
         public TodoItem(int todoListId, string responsiblePartyId, string title, Importance importance, int rank)
-        :this(todoListId, responsiblePartyId, title, importance)
+            : this(todoListId, responsiblePartyId, title, importance)
         {
             Rank = rank;
         }

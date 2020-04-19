@@ -1,5 +1,6 @@
 ﻿@using Todo.Data.Entities
 @using Todo.Extensions
+@using Todo.Models.TodoItems
 @using Todo.Resources
 @using Todo.Services
 @model Todo.Models.TodoLists.TodoListDetailViewmodel
@@ -16,6 +17,7 @@
             <a asp-action="Create" asp-controller="TodoItem" asp-route-todoListId="@Model.TodoListId">
                 <strong>Add New Item</strong>
             </a>
+            <button data-toggle="modal" data-target="#todo-item-creation-modal">OPEN</button>
         </div>
         <div class="col-xs-6">
             @await Html.PartialAsync("DetailsFilterPartial", Model.Filter)
@@ -81,4 +83,17 @@
         }
         </tbody>
     </table>
+</div>
+<div id="todo-item-creation-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                @await Html.PartialAsync("~/Views/TodoItem/CreatePartial.cshtml", new TodoItemCreateFields())
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="createTodoItem(@Model.TodoListId)">Create</button>
+                <button id="modal-close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
